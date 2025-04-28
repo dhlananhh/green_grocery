@@ -59,17 +59,17 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.json({ success: false, message: "Email and password are required" })
+      return res.json({ success: false, message: "Email and password are required!" })
     }
 
     const user = await User.findOne({ email })
     if (!user) {
-      return res.json({ success: false, message: "Invalid email or password" })
+      return res.json({ success: false, message: "Invalid email or password!" })
     }
 
     const isMatch = await bcrypt.compare(password, user.password)
     if (!isMatch) {
-      return res.json({ success: false, message: "Invalid email or password" })
+      return res.json({ success: false, message: "Invalid email or password!" })
     }
 
     const token = jwt.sign(
@@ -87,6 +87,7 @@ export const login = async (req, res) => {
 
     return res.json({
       success: true,
+      message: "User logged in successfully!",
       user: {
         email: user.email,
         name: user.name
@@ -99,12 +100,12 @@ export const login = async (req, res) => {
 }
 
 
-// check auth: /api/user/is-auth
+// check user is auth: /api/user/is-auth
 export const isAuth = async (req, res) => {
   try {
     const { userId } = req.body
     const user = await User.findById(userId).select("-password")
-    return res.json({ success: true, user })
+    return res.json({ success: true, message: "User is already logged in!" })
   } catch (error) {
     console.log(error.message)
     return res.json({ success: false, message: error.message })
