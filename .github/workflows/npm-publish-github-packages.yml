@@ -4,6 +4,9 @@
 name: Node.js Package
 
 on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
   release:
     types: [created]
 
