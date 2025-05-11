@@ -7,9 +7,9 @@ export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [ user, setUser ] = useState(null)
-  const [ isSeller, setIsSeller ] = useState(false)
-  const [ showUserLogin, setShowUserLogin ] = useState(false)
+  const [user, setUser] = useState(null)
+  const [isSeller, setIsSeller] = useState(false)
+  const [showUserLogin, setShowUserLogin] = useState(false)
 
 
   const value = {
@@ -23,8 +23,8 @@ export const AppContextProvider = ({ children }) => {
   }
 
   return (
-    <AppContext.Provider value={ value }>
-      { children }
+    <AppContext.Provider value={value}>
+      {children}
     </AppContext.Provider>
   )
 };
