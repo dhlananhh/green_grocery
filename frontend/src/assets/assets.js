@@ -24,8 +24,8 @@ import main_banner_bg from "./main_banner_bg.png";
 import main_banner_bg_sm from "./main_banner_bg_sm.png";
 import bottom_banner_image from "./bottom_banner_image.png";
 import bottom_banner_image_sm from "./bottom_banner_image_sm.png";
-import add_address_iamge from "./add_address_image.svg";
-import organic_vegitable_image from "./organic_vegitable_image.png";
+import add_address_image from "./add_address_image.svg";
+import organic_vegetable_image from "./organic_vegetable_image.png";
 import fresh_fruits_image from "./fresh_fruits_image.png";
 import bottles_image from "./bottles_image.png";
 import maggi_image from "./maggi_image.png";
@@ -96,7 +96,7 @@ export const assets = {
   main_banner_bg_sm,
   bottom_banner_image,
   bottom_banner_image_sm,
-  add_address_iamge,
+  add_address_image,
   box_icon,
 };
 
@@ -104,7 +104,7 @@ export const categories = [
   {
     text: "Organic veggies",
     path: "Vegetables",
-    image: organic_vegitable_image,
+    image: organic_vegetable_image,
     bgColor: "#FEF6DA",
   },
   {
