@@ -27,7 +27,7 @@ const ProductDetails = () => {
       })
       setRelatedProduct(productsCopy.slice(0, 5))
     }
-  }, [products])
+  }, [products, product?.category])
 
   useEffect(() => {
     setThumbnail(product?.image[0] ? product.image[0] : null)
@@ -119,6 +119,18 @@ const ProductDetails = () => {
             >
               Buy now
             </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Related Products */}
+      <div className="flex flex-col items-center mt-20">
+        <div className="flex flex-col items-center w-max">
+          <p>
+            Related Products
+          </p>
+          <div className="w-20 h-0.5 bg-primary rounded-full mt-2">
+
           </div>
         </div>
       </div>
