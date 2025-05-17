@@ -1,0 +1,6 @@
+src/__generated__
+src/assets/
+node_modules
+dist
+public
+sw-templates
