@@ -1,16 +1,20 @@
-import React from "react"
-import { useAppContext } from "../context/AppContext"
-import { useParams } from "react-router-dom"
-import { categories } from "../assets/assets"
-import ProductCard from "../components/ProductCard"
+import React from "react";
+import { useAppContext } from "../context/AppContext.jsx";
+import { useParams } from "react-router-dom";
+import { categories } from "../assets/assets.js";
+import ProductCard from "../components/ProductCard.jsx";
 
 const ProductCategory = () => {
-  const { products } = useAppContext()
-  const { category } = useParams()
+  const { products } = useAppContext();
+  const { category } = useParams();
 
-  const searchCategory = categories.find((item) => item.path.toLowerCase() === category)
+  const searchCategory = categories.find(
+    (item) => item.path.toLowerCase() === category
+  );
 
-  const filteredProducts = products.filter((product) => product.category.toLowerCase() === category)
+  const filteredProducts = products.filter(
+    (product) => product.category.toLowerCase() === category
+  );
 
   return (
     <div className="mt-16">
@@ -37,7 +41,7 @@ const ProductCategory = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default ProductCategory
+export default ProductCategory;
