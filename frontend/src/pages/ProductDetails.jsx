@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
+import ProductCard from "../components/ProductCard.jsx";
 
 const ProductDetails = () => {
   const {
@@ -17,7 +18,7 @@ const ProductDetails = () => {
   const [relatedProduct, setRelatedProduct] = useState([]);
   const [thumbnail, setThumbnail] = useState(null);
 
-  const { product } = products.find((item) => item._id === id);
+  const product = products.find((item) => item._id === id);
 
   useEffect(() => {
     if (products.length > 0) {
@@ -45,7 +46,7 @@ const ProductDetails = () => {
         <Link to={`/products/${product.category}.toLowerCase()`}>
           {product.category}
         </Link> /
-        <span className="text-indigo-500"> {product.name}</span>
+        <span className="text-primary"> {product.name}</span>
       </p>
 
       <div className="flex flex-col md:flex-row gap-16 mt-4">
@@ -111,7 +112,7 @@ const ProductDetails = () => {
               Add to Cart
             </button>
             <button
-              className="w-full py-3.5 cursor-pointer font-medium bg-indigo-500 text-white hover:bg-indigo-600 transition"
+              className="w-full py-3.5 cursor-pointer font-medium bg-primary text-white hover:bg-primary-dull transition"
               onClick={() => {
                 addToCart(product._id);
                 navigate("/cart");
@@ -126,13 +127,27 @@ const ProductDetails = () => {
       {/* Related Products */}
       <div className="flex flex-col items-center mt-20">
         <div className="flex flex-col items-center w-max">
-          <p>
+          <p className="text-3xl font-medium">
             Related Products
           </p>
-          <div className="w-20 h-0.5 bg-primary rounded-full mt-2">
-
-          </div>
+          <div className="w-20 h-0.5 bg-primary rounded-full mt-2"></div>
         </div>
+        <div>
+          {relatedProduct.filter((product) => product.inStock).map(
+            (product, index) => (
+              <ProductCard key={index} product={product} />
+            )
+          )}
+        </div>
+        <button
+          onClick={() => {
+            navigate("/products");
+            scrollTo(0, 0)
+          }}
+          className="mx-auto cursor-pointer px-12 my-16 py-2.5 border rounded text-primary hover:bg-primary/10 transition"
+        >
+          See more
+        </button>
       </div>
     </div>
   );
