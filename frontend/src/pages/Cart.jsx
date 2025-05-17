@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 import { useAppContext } from "../context/AppContext"
 import { assets, dummyAddress } from "../assets/assets"
 
@@ -21,7 +21,7 @@ const Cart = () => {
   const [selectedAddress, setSelectedAddress] = useState(dummyAddress[0])
   const [paymentOption, setPaymentOption] = useState("COD")
 
-  const getCart = () => {
+  const getCart = useCallback(() => {
     let tempArray = []
     for (const key in cartItems) {
       const product = products.find(item => item._id === key)
@@ -29,7 +29,7 @@ const Cart = () => {
       tempArray.push(product)
     }
     setCartArray(tempArray)
-  }
+  }, [products, cartItems])
 
   const placeOrder = async () => {
 
@@ -39,7 +39,7 @@ const Cart = () => {
     if (products.length > 0 && cartItems) {
       getCart()
     }
-  }, [products, cartItems])
+  }, [products, cartItems, getCart])
 
   return products.length > 0 && cartItems ? (
     <div className="flex flex-col md:flex-row mt-16">
@@ -153,7 +153,7 @@ const Cart = () => {
             </button>
             {showAddress && (
               <div className="absolute top-12 py-1 bg-white border border-gray-300 text-sm w-full">
-                {addresses.map((address, index) => (
+                {addresses.map((address) => (
                   <p
                     onClick={() => {
                       setSelectedAddress(address);
