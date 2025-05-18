@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { assets } from "../assets/assets"
-import InputField from "../components/InputField"
+import { assets } from "../assets/assets.js"
+import InputField from "../components/InputField.jsx"
 
 const AddAddress = () => {
   const [address, setAddress] = useState({
