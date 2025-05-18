@@ -1,25 +1,6 @@
 import React, { useState } from "react"
 import { assets } from "../assets/assets"
-
-// Input Field Component
-const InputField = ({
-  type,
-  placeholder,
-  name,
-  handleChange,
-  address
-}) => {
-  <input
-    className="w-full px-2 py-2.5 border border-gray-500/30 rounded outline-none text-gray-500 focus:border-primary transition"
-    type={type}
-    placeholder={placeholder}
-    onChange={handleChange}
-    name={name}
-    value={address[name]}
-    required
-  />
-}
-
+import InputField from "../components/InputField"
 
 const AddAddress = () => {
   const [address, setAddress] = useState({
@@ -137,7 +118,7 @@ const AddAddress = () => {
               placeholder="Phone"
             />
 
-            <button className="w-full mask-t-to-60% bg-primary text-white py-3 hover:bg-primary-dull transition cursor-pointer uppercase">
+            <button className="w-full mt-6 bg-primary text-white py-3 hover:bg-primary-dull transition cursor-pointer uppercase">
               Save address
             </button>
           </form>
