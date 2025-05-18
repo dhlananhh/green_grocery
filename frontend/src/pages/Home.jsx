@@ -1,10 +1,10 @@
 import React from "react";
-import MainBanner from "../components/MainBanner";
-import Categories from "../components/Categories";
-import BestSeller from "../components/BestSeller";
-import BottomBanner from "../components/BottomBanner";
-import Newsletter from "../components/NewsLetter";
-import Footer from "../components/Footer";
+import MainBanner from "../components/MainBanner.jsx";
+import Categories from "../components/Categories.jsx";
+import BestSeller from "../components/BestSeller.jsx";
+import BottomBanner from "../components/BottomBanner.jsx";
+import Newsletter from "../components/NewsLetter.jsx";
+import Footer from "../components/Footer.jsx";
 
 const Home = () => {
   return (
