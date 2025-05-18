@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react"
-import { useAppContext } from "../context/AppContext"
-import { assets, dummyAddress } from "../assets/assets"
+import { useAppContext } from "../context/AppContext.jsx"
+import { assets, dummyAddress } from "../assets/assets.js"
 
 const Cart = () => {
   const {
