@@ -12,9 +12,9 @@ import {
 const productRouter = express.Router()
 
 productRouter.post('/add', upload.array([ "images" ]), authSeller, addProduct)
-productRouter.post('/list', getProductList)
-productRouter.post('/id', getProductById)
-productRouter.post('/stock', authSeller, changeStock)
+productRouter.get('/list', getProductList)
+productRouter.get('/id', getProductById)
+productRouter.put('/stock', authSeller, changeStock)
 
 
 export default productRouter
