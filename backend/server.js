@@ -5,6 +5,7 @@ import "dotenv/config"
 
 import connectDB from "./configs/db.js"
 import connectCloudinary from "./configs/cloudinary.js"
+import { upload } from "./configs/multer.js"
 
 import userRouter from "./routes/userRouter.js"
 import sellerRouter from "./routes/sellerRouter.js"
@@ -36,6 +37,9 @@ app.use('/api/cart', cartRouter)
 app.use('/api/address', addressRouter)
 app.use('/api/order', orderRouter)
 
+app.post('/upload', upload.single('file'), (req, res) => {
+  res.send({ message: 'File uploaded successfully!', file: req.file });
+});
 
 // listening port
 app.listen(port, () => {
